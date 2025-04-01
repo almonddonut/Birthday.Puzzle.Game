@@ -1,42 +1,19 @@
-/* Body dengan gradasi pink ke ungu */
 body {
-    background: linear-gradient(to bottom, #ff66b2, #9b59b6);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-/* Game Container */
-#game-container {
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    display: block; /* Menampilkan game container */
-    animation: fadeIn 1s forwards;
+    background-color: #f0f0f0;
 }
 
-/* Styling untuk Puzzle Area */
-#puzzle {
-    display: grid;
-    grid-template-columns: repeat(4, 100px); /* 4 kolom puzzle */
-    grid-gap: 5px;
-    justify-content: center;
-    margin-bottom: 20px;
+h1, h2 {
+    color: #9b59b6; /* Warna ungu */
 }
 
-/* Styling untuk Setiap Potongan Puzzle */
+#game-container, #closing-screen {
+    display: none;
+}
+
 .puzzle-piece {
-    width: 100px;
+    width: 100px; /* Ukuran potongan puzzle */
     height: 100px;
     background-color: #fff;
     border: 2px solid #ddd;
@@ -47,64 +24,38 @@ body {
     color: #9b59b6; /* Ungu */
     cursor: pointer;
     border-radius: 10px;
+    background-image: url('assets/images/bubu_dudu_puzzle.jpg'); /* Gambar puzzle */
+    background-size: 600px 600px; /* Ukuran gambar penuh, sesuaikan ukuran puzzle */
     transition: transform 0.3s ease;
+    user-select: none; /* Menghindari pemilihan teks saat drag */
 }
 
-.puzzle-piece:hover {
-    transform: scale(1.1);
+.puzzle-piece[data-value=""] {
+    background-color: transparent; /* Potongan kosong */
+    border: none; /* Hilangkan border untuk potongan kosong */
 }
 
-/* Tombol Shuffle */
-#shuffleBtn {
-    padding: 15px 30px;
+button {
+    margin: 20px;
+    padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #ff66b2; /* Pink cerah */
+    background-color: #9b59b6;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-#shuffleBtn:hover {
-    background-color: #ff3385; /* Pink lebih gelap */
-    transform: scale(1.1);
+button:hover {
+    background-color: #8e44ad;
 }
 
-/* Styling untuk Timer (jika diperlukan) */
 #timer {
-    font-size: 2rem;
-    color: #ff66b2;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin: 20px;
 }
 
-/* Animasi Fade In untuk Game */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Menyembunyikan elemen dengan kelas "hidden" */
 .hidden {
     display: none;
-}
-
-/* Responsif untuk mobile */
-@media (max-width: 600px) {
-    #game-container {
-        padding: 30px;
-    }
-
-    .puzzle-piece {
-        width: 80px;
-        height: 80px;
-        font-size: 1.2rem;
-    }
-
-    #shuffleBtn {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
 }
