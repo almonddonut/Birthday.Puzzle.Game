@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Tombol untuk mulai permainan
     startBtn.addEventListener('click', function () {
-        openingScreen.classList.add('hidden');
-        gameContainer.classList.remove('hidden');
-        startGame();
+        openingScreen.classList.add('hidden');  // Menyembunyikan opening screen
+        gameContainer.classList.remove('hidden');  // Menampilkan game container
+        startGame();  // Memulai game
     });
 
     // Fungsi untuk memulai permainan
@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fungsi untuk me-render puzzle di halaman
     function renderPuzzle() {
-        puzzleContainer.innerHTML = '';
+        puzzleContainer.innerHTML = '';  // Bersihkan puzzle lama
         puzzlePieces.forEach(piece => {
             const pieceElement = document.createElement('div');
             pieceElement.classList.add('puzzle-piece');
-            pieceElement.innerHTML = piece !== 16 ? piece : ''; // 16 kosongkan
+            pieceElement.innerHTML = piece !== 16 ? piece : ''; // Jangan tampilkan angka 16
             pieceElement.setAttribute('data-value', piece);
-            pieceElement.addEventListener('click', handlePieceClick);
-            puzzleContainer.appendChild(pieceElement);
+            pieceElement.addEventListener('click', handlePieceClick); // Event listener
+            puzzleContainer.appendChild(pieceElement);  // Menambahkan puzzle ke kontainer
         });
     }
 
@@ -81,23 +81,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fungsi untuk memeriksa apakah dua potongan puzzle bersebelahan
     function isAdjacent(piece1, piece2) {
-        const index1 = Array.from(puzzleContainer.children).indexOf(piece1);
-        const index2 = Array.from(puzzleContainer.children).indexOf(piece2);
-        const row1 = Math.floor(index1 / 4);
-        const col1 = index1 % 4;
-        const row2 = Math.floor(index2 / 4);
-        const col2 = index2 % 4;
-
-        return Math.abs(row1 - row2) + Math.abs(col1 - col2) === 1;
-    }
-
-    // Fungsi untuk memulai timer
-    function startTimer() {
-        interval = setInterval(function () {
-            timer++;
-            const minutes = Math.floor(timer / 60);
-            const seconds = timer % 60;
-            timerDisplay.innerHTML = `Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }, 1000);
-    }
-});
+        const index1 = Array.from(puzzleContainer.children).indexOf(piece1
