@@ -1,6 +1,6 @@
-/* Body dengan gradasi pink ke ungu, dominasi pink */
+/* Body dengan gradasi pink ke ungu */
 body {
-    background: linear-gradient(to bottom, #ff66b2, #9b59b6); /* Gradasi pink cerah ke ungu */
+    background: linear-gradient(to bottom, #ff66b2, #9b59b6);
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -11,84 +11,53 @@ body {
     overflow: hidden;
 }
 
-/* Styling untuk Opening Screen */
-#opening-screen {
+/* Game Container */
+#game-container {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    background-color: rgba(255, 255, 255, 0.85); /* Background putih transparan */
+    background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     width: 80%;
-    max-width: 600px;
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
+    max-width: 800px;
+    margin: 20px auto;
+    display: block; /* Menampilkan game container */
+    animation: fadeIn 1s forwards;
 }
 
-#opening-screen h1 {
-    font-size: 3rem;
-    color: #ff66b2; /* Pink cerah */
-    margin-bottom: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* Styling untuk Puzzle Area */
+#puzzle {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* 4 kolom puzzle */
+    grid-gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-#startBtn {
-    padding: 20px 50px;
-    font-size: 1.8rem;
-    background-color: #ff66b2; /* Pink cerah */
-    color: white;
-    border: none;
-    border-radius: 10px;
+/* Styling untuk Setiap Potongan Puzzle */
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #9b59b6; /* Ungu */
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-#startBtn:hover {
-    background-color: #ff3385; /* Pink sedikit lebih gelap */
+.puzzle-piece:hover {
     transform: scale(1.1);
 }
 
-/* Animasi Fade In untuk Opening */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Styling untuk Game Container */
-#game-container {
-    text-align: center;
-    display: none; /* Menyembunyikan game container secara default */
-}
-
+/* Tombol Shuffle */
 #shuffleBtn {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #9b59b6; /* Ungu cerah */
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-#shuffleBtn:hover {
-    background-color: #8e44ad; /* Ungu lebih gelap */
-    transform: scale(1.1);
-}
-
-/* Styling untuk Closing Screen */
-#closing-screen {
-    text-align: center;
-    display: none; /* Menyembunyikan closing screen secara default */
-}
-
-#playAgainBtn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
     background-color: #ff66b2; /* Pink cerah */
     color: white;
     border: none;
@@ -96,11 +65,25 @@ body {
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
-#playAgainBtn:hover {
+#shuffleBtn:hover {
     background-color: #ff3385; /* Pink lebih gelap */
     transform: scale(1.1);
+}
+
+/* Styling untuk Timer (jika diperlukan) */
+#timer {
+    font-size: 2rem;
+    color: #ff66b2;
+    margin-bottom: 20px;
+}
+
+/* Animasi Fade In untuk Game */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Menyembunyikan elemen dengan kelas "hidden" */
@@ -108,23 +91,19 @@ body {
     display: none;
 }
 
-/* Mengatur tampilan tombol agar lebih responsif */
+/* Responsif untuk mobile */
 @media (max-width: 600px) {
-    #opening-screen h1 {
-        font-size: 2.5rem;
+    #game-container {
+        padding: 30px;
     }
 
-    #startBtn {
-        padding: 15px 35px;
-        font-size: 1.5rem;
+    .puzzle-piece {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
     }
 
     #shuffleBtn {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-
-    #playAgainBtn {
         padding: 12px 25px;
         font-size: 1rem;
     }
