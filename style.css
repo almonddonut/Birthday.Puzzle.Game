@@ -3,13 +3,14 @@ body {
     text-align: center;
     background: linear-gradient(45deg, #8e44ad, #ff1493, #3498db); /* Gradient dengan warna ungu, pink, dan biru */
     background-size: 300% 300%; /* Membuat animasi efek gradient */
-    animation: gradientAnimation 6s ease infinite;
+    animation: gradientAnimation 6s ease infinite; /* Animasi efek gradient yang bergerak */
     margin: 0;
     padding: 0;
     height: 100vh; /* Mengatur tinggi agar memenuhi layar */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 
 @keyframes gradientAnimation {
@@ -105,4 +106,12 @@ button:hover {
 
 #puzzle img:hover {
     transform: scale(1.05); /* Efek zoom pada potongan puzzle ketika dihover */
+}
+
+/* Tambahan background gambar */
+body {
+    background-image: url('background-image.jpg'); /* Jika ingin menggunakan gambar latar belakang */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
