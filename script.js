@@ -3,6 +3,7 @@ document.getElementById('startBtn').addEventListener('click', function() {
     // Sembunyikan opening screen dan tampilkan game container
     document.getElementById('opening-screen').classList.add('hidden');
     document.getElementById('game-container').classList.remove('hidden');
+    document.getElementById('game-container').classList.add('fadeInGame');
 
     // Mulai musik latar belakang
     const music = document.getElementById('background-music');
