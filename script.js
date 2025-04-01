@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const winSound = document.getElementById('win-sound');
     const backgroundMusic = document.getElementById('background-music');
     
-    // Play background music
     backgroundMusic.play();
 
     // Tombol untuk mulai permainan
@@ -118,23 +117,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fungsi untuk menangani event dragstart
     function handleDragStart(event) {
-        // Simpan data item yang sedang di-drag
         event.dataTransfer.setData("text/plain", event.target.dataset.index);
     }
 
     // Fungsi untuk menangani event dragover
     function handleDragOver(event) {
-        event.preventDefault(); // Wajib untuk memungkinkan drop
+        event.preventDefault();
     }
 
     // Fungsi untuk menangani event drop
     function handleDrop(event) {
-        event.preventDefault(); // Hindari aksi default
+        event.preventDefault();
 
         const draggedIndex = event.dataTransfer.getData("text/plain");
         const targetIndex = event.target.dataset.index;
 
-        // Tukar posisi potongan puzzle jika mereka berada pada posisi yang tepat
         if (isAdjacent(event.target, puzzleContainer.children[draggedIndex])) {
             swapPieces(draggedIndex, targetIndex);
             renderPuzzle();
