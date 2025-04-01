@@ -41,13 +41,11 @@ h1, h2 {
     transition: transform 0.3s, opacity 0.3s;  /* Transition untuk animasi */
 }
 
-/* Efek visual saat elemen puzzle di-drag */
 .puzzle-piece.dragging {
     opacity: 0.5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  /* Efek bayangan saat drag */
 }
 
-/* Tombol Umum */
 button {
     padding: 10px 20px;
     background-color: #9b59b6;
@@ -57,18 +55,10 @@ button {
     cursor: pointer;
     border-radius: 8px;
     margin-top: 20px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;  /* Transisi halus */
 }
 
-/* Efek hover pada tombol */
 button:hover {
     background-color: #8e44ad;
-    transform: scale(1.05);  /* Memberikan efek zoom pada tombol */
-}
-
-/* Efek klik pada tombol */
-button:active {
-    transform: scale(0.95);  /* Memberikan efek klik dengan mengecilkan tombol */
 }
 
 .hidden {
@@ -104,12 +94,10 @@ audio {
     background-color: #ff1493;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 #startBtn:hover {
     background-color: #e91e63;
-    transform: scale(1.05);  /* Memberikan efek zoom pada tombol */
 }
 
 #playAgainBtn {
@@ -118,14 +106,8 @@ audio {
     background-color: #3498db;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 #playAgainBtn:hover {
     background-color: #2980b9;
-    transform: scale(1.05);  /* Memberikan efek zoom pada tombol */
-}
-
-#playAgainBtn:active {
-    transform: scale(0.95);  /* Memberikan efek klik dengan mengecilkan tombol */
 }
