@@ -35,10 +35,12 @@ function createPuzzle() {
             piece.dataset.position = `${row}-${col}`;
             piece.setAttribute('draggable', true);
 
+            // Menambahkan event listener untuk drag
             piece.addEventListener('dragstart', (e) => {
                 e.dataTransfer.setData('text', e.target.dataset.position);
             });
 
+            // Menambahkan event listener untuk drop
             piece.addEventListener('dragover', (e) => {
                 e.preventDefault();
             });
@@ -55,10 +57,12 @@ function createPuzzle() {
                 const startPiece = document.querySelector(`[data-position='${startRow}-${startCol}']`);
                 const endPiece = document.querySelector(`[data-position='${endRow}-${endCol}']`);
 
+                // Menukar posisi dua potongan puzzle
                 startPiece.dataset.position = `${endRow}-${endCol}`;
                 endPiece.dataset.position = `${startRow}-${startCol}`;
 
                 renderPuzzle();
+                checkPuzzleCompletion(); // Mengecek apakah puzzle sudah selesai
             });
 
             puzzlePieces.push(piece);
@@ -95,6 +99,20 @@ function endGame() {
     closingScreen.classList.remove('hidden');
     winSound.play();
     gameContainer.classList.add('hidden');
+}
+
+// Memeriksa apakah puzzle sudah selesai
+function checkPuzzleCompletion() {
+    const isCompleted = puzzlePieces.every(piece => {
+        const correctPosition = piece.dataset.position.split('-');
+        const row = parseInt(correctPosition[0]);
+        const col = parseInt(correctPosition[1]);
+        return piece.style.backgroundPosition === `-${col * (image.width / cols)}px -${row * (image.height / rows)}px`;
+    });
+
+    if (isCompleted) {
+        endGame();
+    }
 }
 
 // Play again button
