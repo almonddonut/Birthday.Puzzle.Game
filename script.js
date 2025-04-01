@@ -1,94 +1,121 @@
-// Initial game setup
-const startBtn = document.getElementById('start-btn');
-const gameContainer = document.getElementById('game-container');
-const puzzleGrid = document.getElementById('puzzle-grid');
+// Mengambil elemen-elemen penting
+const startButton = document.getElementById('startBtn');
+const shuffleButton = document.getElementById('shuffleBtn');
+const playAgainButton = document.getElementById('playAgainBtn');
 const openingScreen = document.getElementById('opening-screen');
-const gameOverScreen = document.getElementById('game-over-screen');
+const gameContainer = document.getElementById('game-container');
+const closingScreen = document.getElementById('closing-screen');
+const puzzleContainer = document.getElementById('puzzle');
 const backgroundMusic = document.getElementById('background-music');
-const restartBtn = document.getElementById('restart-btn');
+const winSound = document.getElementById('win-sound');
+
 let pieces = [];
-let emptyPieceIndex = 0;
-let moves = 0;
+let image = new Image();
+image.src = 'bubu_dudu_puzzle.jpg'; // Gambar puzzle yang digunakan
+const rows = 6;
+const cols = 6;
 
-// Setup the puzzle grid (6x6)
-const gridSize = 6;
-const totalPieces = gridSize * gridSize;
-const image = 'bubu_dudu_puzzle.jpg'; // Change to your image file
+// Mulai game
+startButton.addEventListener('click', () => {
+    openingScreen.classList.add('hidden');
+    gameContainer.classList.remove('hidden');
+    backgroundMusic.play();
+    createPuzzle();
+});
 
-// Shuffle puzzle pieces
-function shufflePuzzle() {
-    let shuffled = [];
-    const order = [...Array(totalPieces).keys()];
-    for (let i = order.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [order[i], order[j]] = [order[j], order[i]];
+// Fungsi untuk membuat puzzle
+function createPuzzle() {
+    pieces = [];
+    const pieceWidth = image.width / cols;
+    const pieceHeight = image.height / rows;
+
+    // Membuat potongan puzzle
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const piece = document.createElement('div');
+            piece.classList.add('puzzle-piece');
+            piece.setAttribute('draggable', true);
+            piece.style.backgroundImage = `url(${image.src})`;
+            piece.style.backgroundSize = `${image.width}px ${image.height}px`;
+            piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+            piece.dataset.position = `${row}-${col}`;
+
+            piece.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', e.target.dataset.position);
+            });
+
+            piece.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            piece.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const startPos = e.dataTransfer.getData('text').split('-');
+                const startRow = parseInt(startPos[0]);
+                const startCol = parseInt(startPos[1]);
+                const endPos = e.target.dataset.position.split('-');
+                const endRow = parseInt(endPos[0]);
+                const endCol = parseInt(endPos[1]);
+
+                // Menukar posisi
+                const startPiece = document.querySelector(`[data-position='${startRow}-${startCol}']`);
+                const endPiece = document.querySelector(`[data-position='${endRow}-${endCol}']`);
+                startPiece.dataset.position = `${endRow}-${endCol}`;
+                endPiece.dataset.position = `${startRow}-${startCol}`;
+
+                renderPuzzle();
+                checkPuzzleCompletion(); // Mengecek apakah puzzle selesai
+            });
+
+            pieces.push(piece);
+        }
     }
-    return order;
+    renderPuzzle();
 }
 
-// Create puzzle pieces
-function createPuzzlePieces() {
-    const shuffledOrder = shufflePuzzle();
-    pieces = shuffledOrder.map((index) => {
-        const piece = document.createElement('div');
-        piece.classList.add('puzzle-piece');
-        piece.style.backgroundImage = `url(${image})`;
-        piece.style.backgroundPosition = `${(index % gridSize) * 100}px ${(Math.floor(index / gridSize)) * 100}px`;
-        piece.setAttribute('data-index', index);
-        piece.addEventListener('click', movePiece);
-        puzzleGrid.appendChild(piece);
-        return piece;
+// Fungsi untuk menampilkan potongan puzzle di layar
+function renderPuzzle() {
+    puzzleContainer.innerHTML = '';  // Bersihkan puzzle lama
+    pieces.forEach(piece => {
+        puzzleContainer.appendChild(piece);
     });
 }
 
-// Handle moving puzzle pieces
-function movePiece(e) {
-    const clickedIndex = parseInt(e.target.getAttribute('data-index'));
-    const emptyRow = Math.floor(emptyPieceIndex / gridSize);
-    const emptyCol = emptyPieceIndex % gridSize;
-    const clickedRow = Math.floor(clickedIndex / gridSize);
-    const clickedCol = clickedIndex % gridSize;
-
-    // Check if the clicked piece is adjacent to the empty piece
-    if (
-        (Math.abs(clickedRow - emptyRow) === 1 && clickedCol === emptyCol) ||
-        (Math.abs(clickedCol - emptyCol) === 1 && clickedRow === emptyRow)
-    ) {
-        // Swap pieces
-        pieces[emptyPieceIndex].style.backgroundPosition = `${(clickedCol) * 100}px ${(clickedRow) * 100}px`;
-        pieces[clickedIndex].style.backgroundPosition = `${(emptyCol) * 100}px ${(emptyRow) * 100}px`;
-
-        [pieces[emptyPieceIndex], pieces[clickedIndex]] = [pieces[clickedIndex], pieces[emptyPieceIndex]];
-        emptyPieceIndex = clickedIndex;
-        moves++;
-
-        // Check if the puzzle is solved
-        checkWin();
-    }
-}
-
-// Check if the puzzle is solved
-function checkWin() {
-    if (pieces.every((piece, index) => parseInt(piece.getAttribute('data-index')) === index)) {
-        backgroundMusic.pause();
-        const winMusic = new Audio('musik_kemenangan.mp3');
-        winMusic.play();
-        gameOverScreen.style.display = 'block';
-    }
-}
-
-// Start the game
-startBtn.addEventListener('click', () => {
-    openingScreen.style.display = 'none';
-    gameContainer.style.display = 'block';
-    createPuzzlePieces();
-    backgroundMusic.play();
+// Fungsi untuk mengacak puzzle
+shuffleButton.addEventListener('click', () => {
+    pieces = shuffleArray(pieces);
+    renderPuzzle();
 });
 
-// Restart the game
-restartBtn.addEventListener('click', () => {
-    gameOverScreen.style.display = 'none';
-    puzzleGrid.innerHTML = '';
-    createPuzzlePieces();
-    backgroundMusic.play();
+// Mengacak urutan array puzzle menggunakan algoritma Fisher-Yates
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // Tukar elemen
+    }
+    return arr;
+}
+
+// Fungsi untuk mengecek apakah puzzle sudah selesai
+function checkPuzzleCompletion() {
+    const isCompleted = pieces.every(piece => {
+        const correctPos = piece.dataset.position.split('-');
+        const row = parseInt(correctPos[0]);
+        const col = parseInt(correctPos[1]);
+        return piece.style.backgroundPosition === `-${col * (image.width / cols)}px -${row * (image.height / rows)}px`;
+    });
+
+    if (isCompleted) {
+        winSound.play();
+        closingScreen.classList.remove('hidden');
+        gameContainer.classList.add('hidden');
+    }
+}
+
+// Tombol "Play Again"
+playAgainButton.addEventListener('click', () => {
+    closingScreen.classList.add('hidden');
+    openingScreen.classList.remove('hidden');
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 });
