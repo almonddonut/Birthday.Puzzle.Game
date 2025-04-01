@@ -1,6 +1,6 @@
-/* Styling untuk Body */
+/* Body dengan gradasi pink ke ungu */
 body {
-    background: linear-gradient(to bottom, #ff7f50, #f5c4b1); /* Gradasi warna cerah */
+    background: linear-gradient(to bottom, #ff5c8d, #9b59b6); /* Gradasi pink terang ke ungu */
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
 #opening-screen {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.85); /* Background putih transparan */
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -26,16 +26,17 @@ body {
 
 #opening-screen h1 {
     font-size: 3rem;
-    color: #ff4081; /* Warna pink cerah */
+    color: #ff5c8d; /* Pink cerah */
     margin-bottom: 30px;
     font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #startBtn {
     padding: 20px 50px;
     font-size: 1.8rem;
-    background-color: #ff4081;
+    background-color: #ff5c8d; /* Pink cerah */
     color: white;
     border: none;
     border-radius: 10px;
@@ -45,7 +46,7 @@ body {
 }
 
 #startBtn:hover {
-    background-color: #f50057;
+    background-color: #ff4081; /* Pink lebih gelap */
     transform: scale(1.1);
 }
 
@@ -64,7 +65,7 @@ body {
 #shuffleBtn {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #f44336;
+    background-color: #9b59b6; /* Ungu cerah */
     color: white;
     border: none;
     border-radius: 10px;
@@ -74,7 +75,7 @@ body {
 }
 
 #shuffleBtn:hover {
-    background-color: #e53935;
+    background-color: #8e44ad; /* Ungu lebih gelap */
     transform: scale(1.1);
 }
 
@@ -87,7 +88,7 @@ body {
 #playAgainBtn {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #008CBA;
+    background-color: #ff5c8d; /* Pink cerah */
     color: white;
     border: none;
     border-radius: 10px;
@@ -97,7 +98,7 @@ body {
 }
 
 #playAgainBtn:hover {
-    background-color: #007B9D;
+    background-color: #ff4081; /* Pink lebih gelap */
     transform: scale(1.1);
 }
 
