@@ -41,7 +41,6 @@ function createPuzzle() {
                 e.dataTransfer.setData('text', e.target.dataset.position);
             });
 
-            // Menambahkan event listener untuk drop
             piece.addEventListener('dragover', (e) => {
                 e.preventDefault();
             });
