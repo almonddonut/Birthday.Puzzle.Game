@@ -30,7 +30,6 @@ h1, h2 {
     gap: 5px;
     justify-content: center;
     margin-bottom: 20px;
-    position: relative;
 }
 
 .puzzle-piece {
@@ -38,12 +37,7 @@ h1, h2 {
     height: 100px;
     border: 2px solid #fff;
     cursor: pointer;
-    transition: transform 0.3s, opacity 0.3s;  /* Transition untuk animasi */
-}
-
-.puzzle-piece.dragging {
-    opacity: 0.5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  /* Efek bayangan saat drag */
+    transition: transform 0.3s;
 }
 
 button {
@@ -63,51 +57,4 @@ button:hover {
 
 .hidden {
     display: none;
-}
-
-#opening-screen h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-#closing-screen h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-audio {
-    display: none; /* Menyembunyikan elemen audio */
-}
-
-/* Tampilan tombol pada layar pembukaan */
-#startBtn {
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    background-color: #ff1493;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#startBtn:hover {
-    background-color: #e91e63;
-}
-
-#playAgainBtn {
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    background-color: #3498db;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#playAgainBtn:hover {
-    background-color: #2980b9;
 }
