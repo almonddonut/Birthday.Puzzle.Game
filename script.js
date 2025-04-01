@@ -84,6 +84,7 @@ function renderPuzzle() {
 // Fungsi untuk mengacak puzzle
 shuffleButton.addEventListener('click', () => {
     pieces = shuffleArray(pieces);
+    updatePuzzlePositions(); // Perbarui posisi puzzle setelah diacak
     renderPuzzle();
 });
 
@@ -94,6 +95,19 @@ function shuffleArray(arr) {
         [arr[i], arr[j]] = [arr[j], arr[i]]; // Tukar elemen
     }
     return arr;
+}
+
+// Memperbarui posisi background puzzle setelah diacak
+function updatePuzzlePositions() {
+    pieces.forEach((piece, index) => {
+        const row = Math.floor(index / cols);
+        const col = index % cols;
+        const pieceWidth = image.width / cols;
+        const pieceHeight = image.height / rows;
+        
+        piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+        piece.dataset.position = `${row}-${col}`;
+    });
 }
 
 // Fungsi untuk mengecek apakah puzzle sudah selesai
