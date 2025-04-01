@@ -1,19 +1,31 @@
+/* Styling untuk Body */
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Styling untuk Opening Screen */
 #opening-screen {
     text-align: center;
     font-family: 'Arial', sans-serif;
-    margin-top: 20%;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
 }
 
 #opening-screen h1 {
     font-size: 2.5rem;
-    color: #4CAF50; /* Warna hijau */
+    color: #4CAF50;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 #startBtn {
@@ -29,6 +41,51 @@
 
 #startBtn:hover {
     background-color: #45a049;
+}
+
+/* Styling untuk Game Container */
+#game-container {
+    text-align: center;
+    display: none; /* Menyembunyikan game container secara default */
+}
+
+#shuffleBtn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#shuffleBtn:hover {
+    background-color: #d32f2f;
+}
+
+/* Styling untuk Closing Screen */
+#closing-screen {
+    text-align: center;
+    display: none; /* Menyembunyikan closing screen secara default */
+}
+
+#playAgainBtn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#playAgainBtn:hover {
+    background-color: #007B9D;
+}
+
+/* Menyembunyikan elemen dengan kelas "hidden" */
+.hidden {
+    display: none;
 }
 
 /* Mengatur tampilan tombol agar lebih responsif */
