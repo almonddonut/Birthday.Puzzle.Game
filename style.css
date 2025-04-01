@@ -1,42 +1,31 @@
+/* Tampilan umum */
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #f0f0f0;
 }
 
-h1, h2 {
-    color: #9b59b6; /* Warna ungu */
-}
-
-#game-container, #closing-screen {
-    display: none;
-}
-
-.puzzle-piece {
-    width: 100px; /* Ukuran potongan puzzle */
-    height: 100px;
-    background-color: #fff;
-    border: 2px solid #ddd;
+/* Opening screen styling */
+#opening-screen {
+    background: linear-gradient(to right, #ff7eb9, #ff65a3);
+    color: #fff;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-size: 1.5rem;
-    color: #9b59b6; /* Ungu */
-    cursor: pointer;
-    border-radius: 10px;
-    background-image: url('assets/images/bubu_dudu_puzzle.jpg'); /* Gambar puzzle */
-    background-size: 600px 600px; /* Ukuran gambar penuh, sesuaikan ukuran puzzle */
-    transition: transform 0.3s ease;
-    user-select: none; /* Menghindari pemilihan teks saat drag */
+    align-items: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.puzzle-piece[data-value=""] {
-    background-color: transparent; /* Potongan kosong */
-    border: none; /* Hilangkan border untuk potongan kosong */
+#opening-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
 }
 
 button {
-    margin: 20px;
     padding: 10px 20px;
     font-size: 1.2rem;
     background-color: #9b59b6;
@@ -44,11 +33,51 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #8e44ad;
+}
+
+/* Game container styling */
+#game-container {
+    display: none;
+    text-align: center;
+}
+
+#puzzle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 2px;
+    justify-items: center;
+    margin: 20px;
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #9b59b6;
+    cursor: pointer;
+    border-radius: 10px;
+    background-image: url('assets/images/bubu_dudu_puzzle.jpg');
+    background-size: 600px 600px;
+    transition: transform 0.3s ease;
+}
+
+.puzzle-piece[data-value=""] {
+    background-color: transparent;
+    border: none;
+}
+
+.hidden {
+    display: none;
 }
 
 #timer {
@@ -56,6 +85,19 @@ button:hover {
     margin: 20px;
 }
 
-.hidden {
+#closing-screen {
     display: none;
+    background-color: #9b59b6;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#closing-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
