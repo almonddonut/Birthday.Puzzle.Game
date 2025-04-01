@@ -1,14 +1,20 @@
-/* Tampilan umum */
-body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
+/* Reset styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Opening screen styling */
-#opening-screen {
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #ff7eb9, #ff65a3);
-    color: #fff;
+    color: white;
+    text-align: center;
+}
+
+/* Opening Screen Styling */
+#opening-screen {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,20 +24,20 @@ body {
 }
 
 #opening-screen h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
     letter-spacing: 2px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
+    padding: 15px 30px;
+    font-size: 1.5rem;
     background-color: #9b59b6;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -40,32 +46,41 @@ button:hover {
     background-color: #8e44ad;
 }
 
-/* Game container styling */
+/* Game Container Styling */
 #game-container {
     display: none;
-    text-align: center;
+    margin-top: 50px;
+}
+
+#game-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
 }
 
 #puzzle {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 2px;
-    justify-items: center;
-    margin: 20px;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .puzzle-piece {
     width: 100px;
     height: 100px;
     background-color: #fff;
-    border: 2px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #9b59b6;
+    border: 2px solid #ddd;
     cursor: pointer;
-    border-radius: 10px;
     background-image: url('assets/images/bubu_dudu_puzzle.jpg');
     background-size: 600px 600px;
     transition: transform 0.3s ease;
@@ -78,11 +93,6 @@ button:hover {
 
 .hidden {
     display: none;
-}
-
-#timer {
-    font-size: 1.5rem;
-    margin: 20px;
 }
 
 #closing-screen {
@@ -100,4 +110,22 @@ button:hover {
 #closing-screen h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+}
+
+#shuffleBtn {
+    background-color: #ff65a3;
+    margin-top: 20px;
+}
+
+#shuffleBtn:hover {
+    background-color: #ff7eb9;
+}
+
+#playAgainBtn {
+    background-color: #ff7eb9;
+    margin-top: 20px;
+}
+
+#playAgainBtn:hover {
+    background-color: #ff65a3;
 }
