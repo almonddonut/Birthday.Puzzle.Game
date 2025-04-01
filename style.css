@@ -107,11 +107,3 @@ button:hover {
 #puzzle img:hover {
     transform: scale(1.05); /* Efek zoom pada potongan puzzle ketika dihover */
 }
-
-/* Tambahan background gambar */
-body {
-    background-image: url('background-image.jpg'); /* Jika ingin menggunakan gambar latar belakang */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
