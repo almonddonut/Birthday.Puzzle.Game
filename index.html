@@ -4,35 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Puzzle Game</title>
-    <!-- Menggunakan Font Poppins dari Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Opening Screen -->
     <div id="opening-screen">
-        <h1>Enjoy the Best Birthday Puzzle Game!</h1>
+        <h1>Enjoy the best birthday puzzle game!</h1>
         <button id="startBtn">Start Game</button>
     </div>
 
-    <!-- Game Container -->
+    <!-- Game Screen -->
     <div id="game-container" class="hidden">
         <h2>Birthday Puzzle Game</h2>
+        <div id="timer">Time: 00:00</div>
         <div id="puzzle"></div>
         <button id="shuffleBtn">Shuffle Puzzle</button>
     </div>
 
     <!-- Closing Screen -->
     <div id="closing-screen" class="hidden">
-        <h2>Lowkey Impressive. Mad Respect!</h2>
+        <h2>Lowkey impressive. Mad respect!</h2>
         <button id="playAgainBtn">Play Again</button>
     </div>
 
-    <!-- Background Music -->
     <audio id="background-music" loop>
         <source src="musik_latar.mp3" type="audio/mp3">
     </audio>
-    <!-- Win Sound -->
     <audio id="win-sound">
         <source src="musik_kemenangan.mp3" type="audio/mp3">
     </audio>
