@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="opening-screen">
+        <h1>Enjoy the best birthday puzzle game!</h1>
+        <button id="startBtn">Start Game</button>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <h1>Birthday Puzzle Game</h1>
+        <div id="puzzle"></div>
+        <button id="shuffleBtn">Shuffle Puzzle</button>
+    </div>
+
+    <div id="closing-screen" class="hidden">
+        <h2>Lowkey impressive. Mad respect!</h2>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="musik_latar.mp3" type="audio/mp3">
+    </audio>
+    <audio id="win-sound">
+        <source src="musik_kemenangan.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-size: 2rem;
+    color: #ff69b4; /* Pink for the theme */
+    margin: 10px 0;
+}
+
+#puzzle {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#puzzle img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #9b59b6; /* Purple border for puzzle pieces */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #9b59b6; /* Purple button */
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #8e44ad; /* Darker purple on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+#opening-screen h1 {
+    font-size: 2.5rem;
+    color: #ff1493; /* Pink */
+    animation: fadeIn 2s ease-in-out;
+}
+
+#startBtn {
+    font-size: 1.5rem;
+    background-color: #ff1493; /* Pink */
+    animation: fadeIn 2s ease-in-out;
+    padding: 15px 30px;
+    border-radius: 8px;
+}
+
+#closing-screen h2 {
+    font-size: 2rem;
+    color: #3498db; /* Blue */
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#puzzle img {
+    transform: scale(1);
+}
+
+#puzzle img:hover {
+    transform: scale(1.05);
+}
