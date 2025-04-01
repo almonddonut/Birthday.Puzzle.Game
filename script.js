@@ -42,10 +42,17 @@ function createPuzzle() {
 
             piece.addEventListener('dragstart', (e) => {
                 e.dataTransfer.setData('text', e.target.dataset.position);
+                e.target.classList.add('dragging');  // Menandai elemen yang sedang di-drag
+            });
+
+            piece.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');  // Menghapus tanda dragging setelah selesai
+                renderPuzzle();  // Merender ulang posisi potongan puzzle
+                checkPuzzleCompletion();  // Mengecek apakah puzzle selesai
             });
 
             piece.addEventListener('dragover', (e) => {
-                e.preventDefault();
+                e.preventDefault();  // Mencegah default untuk memperbolehkan drop
             });
 
             piece.addEventListener('drop', (e) => {
