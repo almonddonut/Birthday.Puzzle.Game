@@ -25,6 +25,7 @@ function createPuzzle() {
 
     puzzlePieces = [];
 
+    // Membuat potongan puzzle dan menambahkannya ke array
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
             const piece = document.createElement('div');
@@ -72,18 +73,31 @@ function createPuzzle() {
     renderPuzzle();
 }
 
-// Fungsi untuk menampilkan puzzle
+// Fungsi untuk menampilkan puzzle di layar
 function renderPuzzle() {
-    puzzleContainer.innerHTML = '';
+    puzzleContainer.innerHTML = '';  // Bersihkan puzzle yang lama
+
+    // Menambahkan potongan puzzle yang sudah diacak ke dalam grid
     puzzlePieces.forEach(piece => {
         puzzleContainer.appendChild(piece);
     });
 }
 
-// Fungsi untuk mengacak puzzle
+// Fungsi untuk mengacak posisi puzzle
 function shufflePuzzle() {
-    puzzlePieces.sort(() => Math.random() - 0.5);
-    renderPuzzle();
+    // Mengacak urutan potongan puzzle secara acak
+    puzzlePieces = shuffleArray(puzzlePieces);
+
+    renderPuzzle(); // Menyusun kembali puzzle setelah diacak
+}
+
+// Fungsi untuk mengacak array (menggunakan algoritma Fisher-Yates)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Tukar elemen
+    }
+    return array;
 }
 
 // Fungsi untuk mulai permainan
