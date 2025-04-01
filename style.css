@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Styling untuk Opening Screen */
@@ -28,4 +29,103 @@ body {
     font-size: 3rem;
     color: #ff66b2; /* Pink cerah */
     margin-bottom: 30px;
-    font-weight:
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#startBtn {
+    padding: 20px 50px;
+    font-size: 1.8rem;
+    background-color: #ff66b2; /* Pink cerah */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#startBtn:hover {
+    background-color: #ff3385; /* Pink sedikit lebih gelap */
+    transform: scale(1.1);
+}
+
+/* Animasi Fade In untuk Opening */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Styling untuk Game Container */
+#game-container {
+    text-align: center;
+    display: none; /* Menyembunyikan game container secara default */
+}
+
+#shuffleBtn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #9b59b6; /* Ungu cerah */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#shuffleBtn:hover {
+    background-color: #8e44ad; /* Ungu lebih gelap */
+    transform: scale(1.1);
+}
+
+/* Styling untuk Closing Screen */
+#closing-screen {
+    text-align: center;
+    display: none; /* Menyembunyikan closing screen secara default */
+}
+
+#playAgainBtn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff66b2; /* Pink cerah */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#playAgainBtn:hover {
+    background-color: #ff3385; /* Pink lebih gelap */
+    transform: scale(1.1);
+}
+
+/* Menyembunyikan elemen dengan kelas "hidden" */
+.hidden {
+    display: none;
+}
+
+/* Mengatur tampilan tombol agar lebih responsif */
+@media (max-width: 600px) {
+    #opening-screen h1 {
+        font-size: 2.5rem;
+    }
+
+    #startBtn {
+        padding: 15px 35px;
+        font-size: 1.5rem;
+    }
+
+    #shuffleBtn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    #playAgainBtn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
