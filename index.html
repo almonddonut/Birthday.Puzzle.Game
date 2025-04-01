@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Puzzle Game</title>
-    <!-- Menambahkan Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <script src="puzzle.js" defer></script>
 </head>
 <body>
-    <!-- Opening Screen -->
     <div id="opening-screen">
         <h1>Enjoy the best birthday puzzle game!</h1>
-        <button id="start-btn">Start Game</button>
+        <button id="startBtn">Start Game</button>
     </div>
 
-    <!-- Game Container -->
-    <div id="game-container" style="display: none;">
+    <div id="game-container" class="hidden">
         <h2>Birthday Puzzle Game</h2>
-        <div id="puzzle-grid" class="puzzle-grid"></div>
-        <audio id="background-music" loop>
-            <source src="musik_latar.mp3" type="audio/mp3">
-        </audio>
+        <div id="puzzle"></div>
+        <button id="shuffleBtn">Shuffle Puzzle</button>
     </div>
 
-    <!-- Game Over Screen -->
-    <div id="game-over-screen" style="display: none;">
-        <h1>Lowkey impressive. Mad respect!</h1>
-        <button id="restart-btn">Restart</button>
+    <div id="closing-screen" class="hidden">
+        <h2>Lowkey impressive. Mad respect!</h2>
+        <button id="playAgainBtn">Play Again</button>
     </div>
 
+    <audio id="background-music" loop>
+        <source src="musik_latar.mp3" type="audio/mp3">
+    </audio>
+    <audio id="win-sound">
+        <source src="musik_kemenangan.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
