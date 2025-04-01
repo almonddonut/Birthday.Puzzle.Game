@@ -1,7 +1,7 @@
 /* Styling untuk Body */
 body {
-    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ff7f50, #f5c4b1); /* Gradasi warna cerah */
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -13,34 +13,46 @@ body {
 /* Styling untuk Opening Screen */
 #opening-screen {
     text-align: center;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     width: 80%;
     max-width: 600px;
+    transform: scale(1);
+    animation: fadeIn 1.5s ease-out;
 }
 
 #opening-screen h1 {
-    font-size: 2.5rem;
-    color: #4CAF50;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #ff4081; /* Warna pink cerah */
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 #startBtn {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    background-color: #4CAF50;
+    padding: 20px 50px;
+    font-size: 1.8rem;
+    background-color: #ff4081;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #startBtn:hover {
-    background-color: #45a049;
+    background-color: #f50057;
+    transform: scale(1.1);
+}
+
+/* Animasi Fade In untuk Opening */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Styling untuk Game Container */
@@ -50,17 +62,20 @@ body {
 }
 
 #shuffleBtn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     background-color: #f44336;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #shuffleBtn:hover {
-    background-color: #d32f2f;
+    background-color: #e53935;
+    transform: scale(1.1);
 }
 
 /* Styling untuk Closing Screen */
@@ -70,17 +85,20 @@ body {
 }
 
 #playAgainBtn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     background-color: #008CBA;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #playAgainBtn:hover {
     background-color: #007B9D;
+    transform: scale(1.1);
 }
 
 /* Menyembunyikan elemen dengan kelas "hidden" */
@@ -91,11 +109,21 @@ body {
 /* Mengatur tampilan tombol agar lebih responsif */
 @media (max-width: 600px) {
     #opening-screen h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     #startBtn {
+        padding: 15px 35px;
+        font-size: 1.5rem;
+    }
+
+    #shuffleBtn {
         padding: 12px 25px;
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    #playAgainBtn {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
