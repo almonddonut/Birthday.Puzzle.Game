@@ -1,101 +1,79 @@
+/* Body and general styles */
 body {
     font-family: 'Arial', sans-serif;
-    text-align: center;
-    background: linear-gradient(45deg, #8e44ad, #ff1493, #3498db); /* Gradient dengan warna ungu, pink, dan biru */
-    background-size: 300% 300%; /* Membuat animasi efek gradient */
-    animation: gradientAnimation 6s ease infinite; /* Animasi efek gradient yang bergerak */
     margin: 0;
     padding: 0;
-    height: 100vh; /* Mengatur tinggi agar memenuhi layar */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
+    height: 100vh;
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
 }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-h1, h2 {
+/* Opening screen styles */
+#opening-screen h1 {
     font-size: 2rem;
-    color: #fff; /* Warna teks putih agar kontras dengan background */
-    margin: 10px 0;
-    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-#puzzle {
+#start-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background-color: #7a4bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#start-btn:hover {
+    background-color: #9c5eff;
+}
+
+/* Puzzle styles */
+.puzzle-grid {
     display: grid;
     grid-template-columns: repeat(6, 100px);
     grid-template-rows: repeat(6, 100px);
     gap: 5px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-#puzzle .puzzle-piece {
+.puzzle-piece {
     width: 100px;
     height: 100px;
-    border: 2px solid #fff; /* Memberikan border putih pada potongan puzzle */
+    background-size: cover;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.2s ease;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #9b59b6; /* Warna tombol ungu */
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+.puzzle-piece:hover {
+    transform: scale(1.1);
 }
 
-button:hover {
-    background-color: #8e44ad; /* Tombol menjadi lebih gelap ketika di-hover */
-}
-
-.hidden {
-    display: none;
-}
-
-#opening-screen h1 {
-    font-size: 2.5rem;
-    color: #ff1493; /* Warna pink */
-    animation: fadeIn 2s ease-in-out;
-}
-
-#startBtn {
-    font-size: 1.5rem;
-    background-color: #ff1493; /* Warna pink untuk tombol mulai */
-    animation: fadeIn 2s ease-in-out;
-    padding: 15px 30px;
-    border-radius: 8px;
-}
-
-#closing-screen h2 {
+/* Game over screen */
+#game-over-screen h1 {
     font-size: 2rem;
-    color: #3498db; /* Warna biru */
-    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#restart-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background-color: #ff7a7a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#restart-btn:hover {
+    background-color: #ff9c9c;
 }
