@@ -1,6 +1,6 @@
-/* Body dengan gradasi pink ke ungu */
+/* Body dengan gradasi pink ke ungu, dominasi pink */
 body {
-    background: linear-gradient(to bottom, #ff5c8d, #9b59b6); /* Gradasi pink terang ke ungu */
+    background: linear-gradient(to bottom, #ff66b2, #9b59b6); /* Gradasi pink cerah ke ungu */
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@ body {
 
 #opening-screen h1 {
     font-size: 3rem;
-    color: #ff5c8d; /* Pink cerah */
+    color: #ff66b2; /* Pink cerah */
     margin-bottom: 30px;
     font-weight: 600;
     text-transform: uppercase;
@@ -36,7 +36,7 @@ body {
 #startBtn {
     padding: 20px 50px;
     font-size: 1.8rem;
-    background-color: #ff5c8d; /* Pink cerah */
+    background-color: #ff66b2; /* Pink cerah */
     color: white;
     border: none;
     border-radius: 10px;
@@ -46,7 +46,7 @@ body {
 }
 
 #startBtn:hover {
-    background-color: #ff4081; /* Pink lebih gelap */
+    background-color: #ff3385; /* Pink sedikit lebih gelap */
     transform: scale(1.1);
 }
 
@@ -88,7 +88,7 @@ body {
 #playAgainBtn {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #ff5c8d; /* Pink cerah */
+    background-color: #ff66b2; /* Pink cerah */
     color: white;
     border: none;
     border-radius: 10px;
@@ -98,7 +98,7 @@ body {
 }
 
 #playAgainBtn:hover {
-    background-color: #ff4081; /* Pink lebih gelap */
+    background-color: #ff3385; /* Pink lebih gelap */
     transform: scale(1.1);
 }
 
